@@ -1,0 +1,10 @@
+<style>
+.tableaux{
+  display:inline-block;
+  vertical-align:top;
+}
+
+td{
+  border: 1px solid black;
+}
+</style>
