@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <meta charset="utf-8" /> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Providvd</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <script src="js/sorttable.js"></script>
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    </h:head>
+    <h:body>
+        <nav class="navbar navbar-default" id="men" role="navigation">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"></a>
+              </div>
+
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="navbar">
+                  <div class="navbar-header">
+                   <a class="navbar-brand" href="#">
+                       PROVIDVD
+                   </a>
+                 </div>
+                <ul class="nav navbar-nav">
+                  <li class="active"><a href="index.xhtml"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+                  <li><a href="historique.xhtml">
+<i class="fa fa-history" aria-hidden="true"></i> Mes DVD</a></li>
+                  <li><a href="search.xhtml"><i class="fa fa-television" aria-hidden="true"></i> Acheter un DVD</a></li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right" style="#{ConnexionGestion.status eq true ? 'display:block;' : 'display:none;'}">
+                      <li><a style="vertical-align:top;" href="cart.xhtml"><i class="fa fa-shopping-cart fa-2x"> </i><span class="label label-danger" >#{CaddieGestion.nbArticles()}</span></a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bonjour #{ConnexionGestion.user.firstName}<span class="caret"></span></a>
+                       <ul class="dropdown-menu">
+                         <li><a href="profil.xhtml">Profil</a></li>
+                          
+                         <li><a href="historique.xhtml">Historique d'achats</a></li>
+                        <li>
+                            <ul style="#{ConnexionGestion.admin eq true ? 'display:block;' : 'display:none;'}">
+                                <li role="separator" class="divider"></li>
+                                <li><a href="creationAuteur.xhtml">Créer un auteur</a></li>
+                                <li><a href="creationRealisateur.xhtml">Créer un réalisateur</a></li>
+                                <li><a href="creationGenre.xhtml">Créer un genre</a></li>
+                                <li><a href="creationDvd.xhtml">Créer un DVD</a></li>
+                            </ul>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                         <li><a href="authors.xhtml">Liste des auteurs</a></li>
+                         <li><a href="realisators.xhtml">Liste des réalisateurs</a></li>
+                         <li><a href="genres.xhtml">Liste des genres</a></li>
+                         <li><a href="dvds.xhtml">Liste des DVDs</a></li>
+                       </ul>
+                     </li>
+                      <h:form style="display:inline-block">
+                    <h:commandButton action="#{ConnexionGestion.disconnectUser}" value="Se déconnecter" class="btn btn-danger navbar-btn"/>
+                      </h:form>
+                 </ul>
+                <h:form class="navbar-form navbar-right" role="search" style="#{ConnexionGestion.status eq true ? 'display:none;' : 'display:block;'}">
+                    <div class="form-group has-feedback">
+                      <h:inputText id="email" class="form-control" label="email"
+                                pt:placeholder="Adresse email"
+                                value="#{UtilisateurGestion.user.email}">
+                        </h:inputText>
+                    <i class="glyphicon glyphicon-user form-control-feedback"></i>
+                  </div>
+                    <div class="form-group has-feedback">
+                        <h:inputSecret class="form-control" id="pass" pt:placeholder="Password" value="#{UtilisateurGestion.user.password}"/>
+                      <i class="glyphicon glyphicon-lock form-control-feedback"></i>
+                    </div> &nbsp;
+                    <h:commandButton action="#{ConnexionGestion.checkUser(UtilisateurGestion.user, UtilisateurGestion.listUsers)}" value="Valider" class="btn btn-default"/>
+                  
+                </h:form>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="#"></a></li>
+
+                </ul>
+              </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <div id="text" class="container">
+            <div class="row">
+                <div class="col-lg-12" id="head">
+                    <h1 id="titre">PROVI<span style="color: #f0776c;">DVD</span></h1>
+                    <h2 id="subtitle">le provider de dvd</h2>
+                    <hr />
+                </div>
+            </div>
+            <c:if test="#{ConnexionGestion.status eq false}">
+            <div class ="row">
+                <h:form class="text-center">
+                    <h4>Accès refusé</h4>
+                    <p> Vous devez être connecté pour accéder à cette page.</p>
+                    <h:commandLink action="#{ConnexionGestion.Connexion()}" value="Connexion" class="btn btn-default"/>
+                </h:form>
+            </div>
+            </c:if>
+            <c:if test="#{ConnexionGestion.status eq true}">
+            <div class="row">
+                <div class="row">
+                    <div class="col-lg-4 col-lg-push-4 profil">
+                        <c:set var="user" value="#{ConnexionGestion.user}" />
+                            <h1>${user.firstName} ${user.name}</h1>
+                            <b>Email</b> : ${user.email}<br />
+                            <b>Banque</b> : <b>${user.bank}</b> €<br />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-lg-push-4 box">
+                        <h2>Ajouter de l'argent à notre compte</h2>
+                        <h:form>
+                            <h:inputText id="deposit" class="form-control" label="deposit"
+                                    pt:placeholder="Dépot d'argent"
+                                    value="#{UtilisateurGestion.user.bank}">
+                            </h:inputText>
+                            <h:commandButton action="#{ConnexionGestion.update(UtilisateurGestion.addMoney(ConnexionGestion.user))}" value="Valider" class="btn btn-default"/>
+
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+            </c:if>
+            <div class="row" id="footer">
+                <div class="col-sm-2 col-sm-push-2">
+                  Home
+                </div>
+                <div class="col-sm-2 col-sm-push-2">
+                  Mes DVD
+                </div>
+                <div class="col-sm-2 col-sm-push-2">
+                  Acheter un DVD
+                </div>
+                <div class="col-sm-2 col-sm-push-2">
+                  A propos
+                </div><br />
+
+                <h3>PROVIDVD <small> all right reserved</small></h3><br />
+                <small><small>A project powered by ENSIMAG by Célia, Mathieu, Maxime and Kélian</small></small><br />
+                <small>Nombre de personnes inscrites : <h:outputText value="#{UtilisateurGestion.numberOfUser}"/></small>
+            </div>
+        </div>
+        
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </h:body>
+</html>

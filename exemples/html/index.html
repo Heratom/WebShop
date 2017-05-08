@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Providvd</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+  <body>
+
+     <nav class="navbar navbar-default" id="men" role="navigation">
+       <div class="container-fluid">
+         <div class="navbar-header">
+           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+             <span class="sr-only">Toggle navigation</span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+           </button>
+           <a class="navbar-brand" href="#"></a>
+         </div>
+
+         <!-- Collect the nav links, forms, and other content for toggling -->
+         <div class="collapse navbar-collapse" id="navbar">
+             <div class="navbar-header">
+              <a class="navbar-brand" href="#">
+                  PROFIDVD
+              </a>
+            </div>
+           <ul class="nav navbar-nav">
+             <li class="active"><a href="index.html">Home</a></li>
+             <li><a href="#">Mes DVD</a></li>
+             <li><a href="#">Acheter un DVD</a></li>
+
+           </ul>
+           <ul class="nav navbar-nav navbar-right">
+               <li><a style="vertical-align:top;"><i class="fa fa-shopping-cart fa-2x"> </i><span class="label label-danger" >0</span></a></li>
+               <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bonjour Kélian <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="profil.html">Profil</a></li>
+                    <li><a href="settings.html">Paramètres</a></li>
+                    <li><a href="historique.html">Historique d'achats</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+                <button type="button" class="btn btn-danger navbar-btn">Se déconnecter</button>
+            </ul>
+           <form class="navbar-form navbar-right" role="search" action="connection.html">
+             <div class="form-group has-feedback">
+               <input type="text" class="form-control" placeholder="Username">
+               <i class="glyphicon glyphicon-user form-control-feedback"></i>
+             </div>
+               <div class="form-group has-feedback">
+                 <input type="text" class="form-control" placeholder="Password">
+                 <i class="glyphicon glyphicon-lock form-control-feedback"></i>
+               </div>
+             <button type="submit" class="btn btn-default">Se connecter</button>
+           </form>
+           <ul class="nav navbar-nav navbar-right">
+             <li><a href="#"></a></li>
+
+           </ul>
+         </div><!-- /.navbar-collapse -->
+       </div><!-- /.container-fluid -->
+     </nav>
+     <div id="text" class="container">
+       <div class="row">
+           <div class="col-lg-12" id="head">
+               <h1 id="titre">PROVI<span style="color: #f0776c;">DVD</span></h1>
+               <h2 id="subtitle">le provider de dvd</h2>
+               <hr />
+           </div>
+       </div>
+       <div class="row">
+         <div class="col-md-4 col-lg-3 col-sm-6 col-xs-6" id="list">
+             <div id="gauche">
+                <img src="img/Set.jpg" class="thumbnail" /><br />
+                <b style="font-family: 'Oswald', Helvetica;">Harry Potter 1</b><br />
+                <span class="stats">
+                    <i class="glyphicon glyphicon-eye-open"></i> 25k &nbsp;
+                    <i class="glyphicon glyphicon-heart"></i> 12k<br />
+                </span>
+                <a href="#" class="btn btn-default">Voir la collection</a>
+            </div>
+         </div>
+
+       </div>
+       <div class="row" id="footer">
+           <div class="col-sm-2 col-sm-push-2">
+             Home
+           </div>
+           <div class="col-sm-2 col-sm-push-2">
+             Mes DVD
+           </div>
+           <div class="col-sm-2 col-sm-push-2">
+             Acheter un DVD
+           </div>
+           <div class="col-sm-2 col-sm-push-2">
+             A propos
+         </div><br />
+           <h3>PROVIDVD <small> all right reserved</small></h3><br />
+           <small><small>A project powered by ENSIMAG by Célia, Mathieu, Maxime and Kélian</small></small>
+       </div>
+     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </body>
+</html>
